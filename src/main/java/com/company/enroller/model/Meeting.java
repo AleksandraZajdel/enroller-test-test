@@ -33,6 +33,12 @@ public class Meeting {
 
 	@Column
 	private String date;
+	
+	@Id
+	private String login;
+	
+	@Column
+	private String password;
 
 	@JsonIgnore
 	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
@@ -83,5 +89,18 @@ public class Meeting {
 	public Collection<Participant> getParticipants() {
 		return participants;
 	}
+
+	public String getLogin() {
+		return login;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;		
+	}
+
 
 }

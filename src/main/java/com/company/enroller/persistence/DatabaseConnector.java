@@ -2,6 +2,8 @@ package com.company.enroller.persistence;
 
 import org.hibernate.Session;
 
+import com.company.enroller.model.Participant;
+
 public class DatabaseConnector {
 
 	protected static DatabaseConnector instance = null;
@@ -13,7 +15,7 @@ public class DatabaseConnector {
 		return instance;
 	}
 
-	private Session session;
+	private org.hibernate.classic.Session session;
 
 	private DatabaseConnector() {
 		session = HibernateUtil.getSessionFactory().openSession();
@@ -25,8 +27,12 @@ public class DatabaseConnector {
 		instance = null;
 	}
 
-	public Session getSession() {
+	public org.hibernate.classic.Session getSession() {
 		return session;
+	}
+
+	public Participant get(Class<Participant> class1, String login) {
+		return null;
 	}
 
 }
